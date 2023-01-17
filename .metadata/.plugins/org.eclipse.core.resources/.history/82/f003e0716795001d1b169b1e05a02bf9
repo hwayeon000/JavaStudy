@@ -1,0 +1,48 @@
+package Person;
+
+public class Person {
+	// 사람 설계도 (Class)
+	// 1. Field(필드) : 데이터, 속성, 변수
+	// 이름, 나이, 키	
+	private String name;
+	private int age;
+	private int height;
+	
+//	public Person() {
+//		// 기본생성자, 생략되어 잇음
+//	}
+
+	// 객체 생성과 동시에 필드를 초기화 시켜줄 수 있는 생성자 만들기
+	// 리턴 타입 없음(void)
+	// 클래스명과 생성자 이름 동일해야 한다!!
+	// 생성자도 메서드다!
+	// 생성자를 새로 만들면 원래 있던 기본 생성자 사용이 불가능
+	// 기본 생성자도 사용하고 싶으면 만들어줘야 함
+	public Person(String name, int age, int height) {
+		this.name= name;
+		this.age = age;
+		this.height = height;
+		// this ---> 현재 클래스를 지칭하는 키워드
+	}
+//	public Person() {
+//		// 기본생성자 강제 생성
+//	}
+	// 오버로딩 : 중복정의
+	
+	
+	// 2. Method(메서드) : 객체의 행위/기능
+	// 밥먹기, 걷기, 잠자기
+	public void eat() {
+		// 함수를 호출해 가져다 쓸 것이므로 static이라는 공간에 저장 할 필요 없음
+		System.out.println("밥을 옴뇸뇸 먹눈다.");
+	}
+	
+	public void walk() {
+		System.out.println("뚜벅뚜벅 걷는다~!");
+	}
+	
+	public void sleep() {
+		System.out.println("쿨쿨 잔다..");
+	}
+	
+}

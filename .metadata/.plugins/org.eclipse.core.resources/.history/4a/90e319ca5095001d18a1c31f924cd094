@@ -1,0 +1,22 @@
+package 클래스구조;
+
+public class PiggyBankMain {
+	public static void main(String[] args) {
+		
+		PiggyBank pb1 = new PiggyBank();
+		// PiggyBank 클래스에서 변수 int money룰 private로 선언했기 때문에
+		// 다른 클래스에서 접근 불거 ---> 캡슐화
+//		pb1.money = 5000;
+		// 저금통에 1500원 입금
+		pb1.deposit(1500);
+		// 700 인출
+		pb1.withdraw(700);
+		// 잔액확인
+		pb1.balance();
+		
+		
+		PiggyBank pb2 = new PiggyBank();
+		pb2.balance();
+	}
+
+}

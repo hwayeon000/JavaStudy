@@ -1,0 +1,6 @@
+package life;
+
+public class Whale extends Animal {
+	
+	
+}

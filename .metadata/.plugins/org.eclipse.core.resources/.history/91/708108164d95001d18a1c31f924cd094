@@ -1,0 +1,21 @@
+package 클래스구조;
+
+public class PiggyBankMain {
+	public static void main(String[] args) {
+		
+		PiggyBank pb1 = new PiggyBank();
+		
+		pb1.money = 5000;
+		// 저금통에 1500원 입금
+		pb1.deposit(1500);
+		// 700 인출
+		pb1.withdraw(700);
+		// 잔액확인
+		pb1.balance();
+		
+		PiggyBank pb2 = new PiggyBank();
+		
+		pb2.balance();
+	}
+
+}

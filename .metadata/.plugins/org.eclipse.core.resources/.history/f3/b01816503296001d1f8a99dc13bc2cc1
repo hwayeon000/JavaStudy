@@ -1,0 +1,12 @@
+package food;
+
+public class SZMalatang extends WonzoMalatang{
+
+	@Override
+	public void makeMalatang() {
+		// super -> 부모클래스를 지칭하는 키워드
+		super.makeMalatang();
+	}
+
+	
+}

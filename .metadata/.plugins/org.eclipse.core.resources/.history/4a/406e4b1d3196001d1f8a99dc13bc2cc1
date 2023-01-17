@@ -1,0 +1,9 @@
+package food;
+
+public class SJMalatang extends WonzoMalatang {
+	
+	public void makeMalatang() {
+		System.out.println("민트 마라탕 !!!");
+	}
+	
+}

@@ -1,0 +1,9 @@
+package life;
+
+public class Cheetah {
+
+	public void eating() {
+		System.out.println("Cheetah 뇸뇸 먹습니다! ψ(｀∇´)ψ");
+	}
+	
+}

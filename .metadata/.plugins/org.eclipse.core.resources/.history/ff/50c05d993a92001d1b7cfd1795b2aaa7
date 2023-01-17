@@ -1,0 +1,18 @@
+package 메서드;
+
+public class Ex01메서드개념 {
+	public static void main(String[] args) {
+		
+		// main 메서드
+		// : 실행을 시키면 가장 먼저 컴파일이 되는 기능
+			
+		
+			
+	}
+
+	// 내가 만드는 메서드는 main밖에다가 적어주자! ***
+	
+	
+	
+	
+}

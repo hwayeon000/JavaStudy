@@ -1,0 +1,13 @@
+package student;
+
+public class Student {
+
+	private String name;
+	private String number;
+	private int age;
+	private int scoreJava;
+	private int scoreWeb;
+	private int scoreAndroid;
+	
+	
+}

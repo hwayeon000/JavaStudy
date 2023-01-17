@@ -1,0 +1,38 @@
+package student;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		ArrayList<Student> array_student = new ArrayList<>();
+		
+		int choice = 0;
+		while (choice != 4) {
+			System.out.print("[1]성적입력 [2]전체조회 [3]학생검색 [4]프로그램종료 >> ");
+			choice = sc.nextInt();
+			
+			if (choice == 1) {
+				
+				break;
+			} else if (choice == 2) {
+				
+				break;
+			} else if (choice == 3) {
+				
+				break;
+			} else if (choice == 4) {
+				System.out.println("학점 관리 프로그램을 종료합니다.");
+				break;
+			}else {
+				System.out.println("번호를 확인하세요.");
+			}
+		}
+		
+		
+	}
+
+}

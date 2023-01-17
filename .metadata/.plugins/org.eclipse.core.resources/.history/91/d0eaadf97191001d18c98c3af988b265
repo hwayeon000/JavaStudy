@@ -1,0 +1,21 @@
+package festival;
+
+public class Ex09 {
+	public static void main(String[] args) {
+		
+		int res = 0;
+		for (int i = 1; i <= 100; i++) {
+			if (i % 2 == 0) {
+				res -= i;
+				System.out.print(-i + " ");
+			} else {
+				res += i;
+				System.out.print(i + " ");
+			}
+		}
+		System.out.println();
+		System.out.println("결과 : " + res);
+		
+	}
+
+}

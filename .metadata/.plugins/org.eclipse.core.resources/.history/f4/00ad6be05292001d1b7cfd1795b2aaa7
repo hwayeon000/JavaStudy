@@ -1,0 +1,21 @@
+package 메서드;
+
+public class Ex09메서드예제 {
+	public static void main(String[] args) {
+		
+		int num1 = 10;
+		int num2 = 2;
+		boolean divisor = isDivisor(num1,num2);
+		
+		System.out.println(divisor);
+	}
+	
+	// num1이 num2의 약수인지 확인하여 boolean타입을 반환하는 메소드
+	public static boolean isDivisor(int num1, int num2) {
+		return (num2%num1==0) ? true : false ;
+	}
+	
+	
+	
+
+}

@@ -1,0 +1,18 @@
+package 클래스구조;
+
+public class AddressMain {
+	public static void main(String[] args) {
+		// 클래스명 객체명 = new 클래스명() ;
+		Address addr;
+		addr = new Address();
+		
+		addr.name = "박화연";
+		addr.age = 30;
+		addr.phoneNumber = "010.7471.0324";
+		
+		addr.showAddress();
+		
+		
+	}
+
+}
