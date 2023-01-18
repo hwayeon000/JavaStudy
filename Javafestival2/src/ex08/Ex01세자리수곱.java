@@ -18,9 +18,6 @@ public class Ex01세자리수곱 {
 		System.out.println((num2/100)*num1);
 		System.out.println(num2*num1);
 		
-		
-		
-
 	}
 
 }

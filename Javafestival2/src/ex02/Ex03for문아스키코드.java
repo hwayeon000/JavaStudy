@@ -9,6 +9,14 @@ public class Ex03for문아스키코드 {
 			System.out.print((char)i + " ");
 		}
 		
+		System.out.println();
+		
+		int cnt = 65;
+		for (int i = 0; i < 26; i++) {
+			System.out.print((char)cnt + " ");
+			cnt++;
+		}
+		
 		
 	}
 

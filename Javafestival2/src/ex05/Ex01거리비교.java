@@ -12,7 +12,8 @@ public class Ex01거리비교 {
 		for (int i = 0; i < point.length-1; i++) {
 			for (int j = i+1; j < point.length; j++) {
 
-				if ((point[id1]-point[id2])*(point[id1]-point[id2]) > (point[i]-point[j])*(point[i]-point[j])) {
+				if ((point[id1]-point[id2])*(point[id1]-point[id2]) 
+						> (point[i]-point[j])*(point[i]-point[j])) {
 					id1 = i;
 					id2 = j;
 				}

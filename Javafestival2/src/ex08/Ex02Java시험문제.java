@@ -5,35 +5,27 @@ import java.util.Scanner;
 
 public class Ex02Java시험문제 {
 	public static void main(String[] args) {
-		
+
 		Scanner sc = new Scanner(System.in);
-				
+
 		System.out.print("점수 입력 : ");
-		String score = sc.next();
-		
-		String[] arr = score.split("");
-		ArrayList<Integer> total = new ArrayList<>();
-		
-		int cnt = 1;
-		for (int i = 0; i < arr.length; i++) {
-			if (arr[i].equals("O")) {
-				total.add(cnt);
-				cnt++;
-			} else if (arr[i].equals("X")) {
-				cnt = 0;
-				total.add(cnt);
-				cnt++;
-			}
-		}
+		String str = sc.next();
+//		String str = "oooxoo";
+
+		char[] arr = str.toCharArray();
 
 		int res = 0;
+		int cnt = 0;
 		for (int i = 0; i < arr.length; i++) {
-			res += total.get(i);
+			if (arr[i] == 'o') {
+				cnt++;
+				res += cnt;
+			} else {
+				cnt = 0;
+			}
 		}
-		
 		System.out.println(res);
-		
+
 	}
-	
 
 }

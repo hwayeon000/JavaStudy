@@ -28,17 +28,13 @@ public class Ex07이차원배열출력 {
 		
 		// 출력
 		for (int i = 0; i < arr.length; i++) {
-			
-			if (i%2==0) {
-				for (int j = 0; j < arr.length; j++) {
+			for (int j = 0; j < arr.length; j++) {
+				if (i%2==0) {
 					System.out.print(arr[i][j] + "\t");
-				}System.out.println();				
-			} else {
-				for (int j = arr.length -1; j >= 0; j--) {
-					System.out.print(arr[i][j] + "\t");
-				}System.out.println();
-			}
-			
+				} else {
+					System.out.print(arr[i][arr.length-1-j] + "\t");
+				}
+			}System.out.println();
 		}
 		
 		

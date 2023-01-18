@@ -8,12 +8,9 @@ public class Ex04알파벳빈도 {
 
 		System.out.print("입력 >> ");
 		String str = sc.nextLine();
-		
-//		System.out.println("1" + str);
+//		String str = "smart Media";
 		str = str.replace(" ", "");
-//		System.out.println("2" + str);
 		str = str.toLowerCase();
-//		System.out.println("3" + str);
 		char[] chr = str.toCharArray();
 		int[] res = new int[26];
 		
@@ -29,6 +26,30 @@ public class Ex04알파벳빈도 {
 			System.out.println((char)f + " : " + res[i]);
 			f++;
 		}
+		
+		
+		
+		
+//		System.err.print("입력 : ");
+//		String name = sc.nextLine();
+//		name = name.replace(" ", "");
+//		name = name.toLowerCase();
+//		char[] arr_name = name.toCharArray();
+//		int[] res = new int[26];
+//
+//		int f = 97;
+//		for (int i = 0; i < res.length; i++) {
+//			for (int j = 0; j < arr_name.length; j++) {
+//				if (arr_name[j] == (char) f + i) {
+//					res[i] += 1;
+//				}
+//			}
+//		}
+//		for (int j = 0; j < res.length; j++) {
+//			System.out.println((char)f + ":" + res[j]);
+//			f++;
+//		}
+		
 		
 
 	}

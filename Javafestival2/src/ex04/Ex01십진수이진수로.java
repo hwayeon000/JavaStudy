@@ -9,26 +9,19 @@ public class Ex01십진수이진수로 {
 
 		Scanner sc = new Scanner(System.in);
 		System.out.print("숫자입력>>");
-		int num = sc.nextInt();
+		int n = sc.nextInt();
 		
 		String res = "";
-		int div = 2;
-		while (num > 0) {
-			if (num%2 == 0) {
-				res += 0 + ",";
-			}else{
-				res += 1 + ",";
-			}
-			num = num/2;
-		}
-		System.out.println(res);
-		String[] arr = res.split(",");
-		System.out.println(arr.length);
 		
-		for (int i = arr.length -1; i >= 0 ; i--) {
-			System.out.print(arr[i] + " ");
+		while (n>0) {
+			res += n%2;
+			n /= 2;
 		}
-
+		
+		char[] arr = res.toCharArray();
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[arr.length-i-1] + " ");
+		}
 		
 	}
 

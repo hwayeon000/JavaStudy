@@ -8,6 +8,7 @@ public class Ex05인덱스수만큼별찍기 {
 //		인덱스의 수 만큼 별을 출력해보세요.
 
 		Scanner sc = new Scanner(System.in);
+//		int[] arr = {9, 4, 5, 2, 1};
 		int[] arr = new int[5];
 		
 		for (int i = 0; i < arr.length; i++) {

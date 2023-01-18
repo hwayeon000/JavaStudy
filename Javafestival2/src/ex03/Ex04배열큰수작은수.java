@@ -17,6 +17,7 @@ public class Ex04배열큰수작은수 {
 			for (int j = 0; j < i; j++) {
 				if (arr[j] == arr[i]) {
 					i--;
+					break;
 				}
 			}
 		}

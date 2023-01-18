@@ -19,7 +19,7 @@ public class Ex04몸무게감량 {
 		while (goalWeight < weight) {
 			System.out.print(cnt + "주차 감량 몸무게 : ");
 			int loss = sc.nextInt();
-			weight = weight - loss;
+			weight -= loss;
 			cnt++;
 		}
 		System.out.println(weight + "달성! 축하합니다!");
