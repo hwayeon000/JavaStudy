@@ -28,18 +28,9 @@ public class Controller {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public void search(JoinDTO dto) {
 		JoinDTO res = dao.search(dto);
-		if (res != null) System.out.println(res.getId());
+		if (res.getId() != null) System.out.println(res.getId());
 		else  System.out.println("없는 회원정보입니다!");
 	}
 

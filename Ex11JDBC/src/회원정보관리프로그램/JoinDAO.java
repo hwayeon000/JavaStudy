@@ -123,7 +123,7 @@ public class JoinDAO {
 
 			rs = psmt.executeQuery();
 
-			while(!rs.next()) {
+			while(rs.next()) {
 				// dto1로 묶어서
 				String id = rs.getString("id");
 				String pw = rs.getString("pw");
