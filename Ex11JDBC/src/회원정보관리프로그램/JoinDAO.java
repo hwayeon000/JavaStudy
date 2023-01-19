@@ -122,16 +122,14 @@ public class JoinDAO {
 			psmt.setString(1, dto.getName());
 
 			rs = psmt.executeQuery();
-
-			while(rs.next()) {
-				// dto1로 묶어서
-				String id = rs.getString("id");
-				String pw = rs.getString("pw");
-				String name = rs.getString("name");
-				dto1.setId(id);
-				dto1.setPw(pw);
-				dto1.setName(name);
-			}
+			rs.next();
+			
+			String id = rs.getString("id");
+			String pw = rs.getString("pw");
+			String name = rs.getString("name");
+			dto1.setId(id);
+			dto1.setPw(pw);
+			dto1.setName(name);
 
 		} catch (ClassNotFoundException | SQLException e) {
 			System.out.println("회원가입 : 데이터베이스 연결 실패");
