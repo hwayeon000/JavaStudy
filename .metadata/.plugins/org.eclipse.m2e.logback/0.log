@@ -1360,3 +1360,4 @@ org.eclipse.core.runtime.CoreException: Launch configuration Ex05 references non
 	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.importProjectAndChildrenRecursively(SmartImportJob.java:416)
 	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob$1.run(SmartImportJob.java:229)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2023-01-18 22:57:01,743 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
