@@ -21,7 +21,7 @@ public class Controller {
 		else  System.out.println("회원가입 실패!");
 	}
 
-	
+	// 회원 삭제
 	public void delete(JoinDTO dto) {
 		int row = dao.delete(dto);
 		// row
@@ -29,23 +29,44 @@ public class Controller {
 		else  System.out.println("회원 삭제 실패!");
 	}
 	
-	
-	public void search(JoinDTO dto) {
-		JoinDTO res = dao.search(dto);
-		if (res.getId() != null) System.out.println(res.getId());
+	// 회원 검색
+	public void selectOne(JoinDTO dto) {
+		JoinDTO res = dao.selectOne(dto);
+		if (res.getId() != null) {
+			System.out.println(res.getId() + "\t" + res.getPw() + "\t" + res.getName());
+		}
 		else  System.out.println("없는 회원정보입니다!");
 	}
 
-	
+	// 리펙토링 기법, 일부러 오류내서 수정
+	// 전체 정보 조회
 	public void select() {
 		ArrayList<JoinDTO> res = dao.select();
+		System.out.println("===== 전체 회원 정보 =====");
+		System.out.println("ID \t PW \t NAME");
+		System.out.println("-----------------------");
 		if (res.size() > 0) {
 			for (int i = 0; i < res.size(); i++) {
 				JoinDTO a = res.get(i);
-				System.out.println(a.getId() + ", " + a.getPw() + ", " + a.getName());
+				System.out.println(a.getId() + "\t" + a.getPw() + "\t" + a.getName());
 			}
 		}
 		else  System.out.println("없는 회원정보입니다!");
+	}
+
+	// 로그인
+	public void login(JoinDTO dto) {
+		
+		JoinDTO res = dao.login(dto);
+//		boolean res = dao.login(dto);
+		
+		if (res.getName() != null) {
+			System.out.println("로그인 완료");
+			System.out.println(res.getName() + "님 반갑습니다.");
+		} else {
+			System.out.println("아이디나 비밀번호를 확인하세요.");
+		}
+		
 	}
 	
 	

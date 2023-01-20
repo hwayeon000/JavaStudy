@@ -1,0 +1,28 @@
+package 포켓몬;
+
+public class Pica implements PokeMon{
+	//	public class Pica implements 인터페익스명
+
+	// interface를 상속한다 ---> implements(구현)
+	
+	// 게임회사에서 만든 설계도(룰, 규칙)을 적용시키자
+	// 설계도 -> Interface
+
+	@Override
+	public void attack() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void specialAttack() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+	
+	
+	
+}

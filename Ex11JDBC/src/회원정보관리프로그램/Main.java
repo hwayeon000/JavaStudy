@@ -22,12 +22,19 @@ public class Main {
 
 			if (select == 1) {
 				// 로그인
+				System.out.print("ID를 입력해주세요 >>");
+				String id = sc.next();
+				System.out.print("Password를 입력해주세요 >>");
+				String pw = sc.next();
+				JoinDTO dto = new JoinDTO(id, pw);
+				ct.login(dto);
+				
 
 			} else if (select == 2) {
 				// 회원가입
 				System.out.print("ID를 입력해주세요 >>");
 				String id = sc.next();
-				System.out.print("Passwiord를 입력해주세요 >>");
+				System.out.print("Password를 입력해주세요 >>");
 				String pw = sc.next();
 				System.out.print("이름를 입력해주세요 >>");
 				String name = sc.next();
@@ -60,7 +67,7 @@ public class Main {
 				// 메서드 이름 : selectOne()
 				
 				JoinDTO dto = new JoinDTO(name);
-				ct.search(dto);
+				ct.selectOne(dto);
 
 			} else if (select == 5) {
 				// 회원삭제

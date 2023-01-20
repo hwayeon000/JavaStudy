@@ -1,0 +1,11 @@
+package 회원정보관리프로그램;
+
+public class JoinDAO {
+
+	// Controller가 보내준 요청(DB에 저장, 삭제..)
+	// DataBase에 직접적인 접근을 하는코드를 통해 ㄱ뎔과값을 받아온다
+	// 
+	
+	
+	
+}

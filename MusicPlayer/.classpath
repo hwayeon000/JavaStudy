@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/SMHRD/Desktop/workspace/JavaStudy/player라이브러리/player.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SMHRD/Desktop/workspace/JavaPDF/player라이브러리/player.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

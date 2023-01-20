@@ -14,9 +14,14 @@ public class JoinDTO {
 		this.pw = pw;
 		this.name = name;
 	}
-	
+	// 오버로딩 : 중복정의(매개변수 갯수나 데이터 타입 다른경우)
 	public JoinDTO(String name) {
 		this.name = name;
+	}
+	
+	public JoinDTO(String id, String pw) {
+		this.id = id;
+		this.pw = pw;
 	}
 
 	public JoinDTO() {

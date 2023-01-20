@@ -1,0 +1,37 @@
+package 회원정보관리프로그램;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int select = 0;
+		
+		while (select != 6) {
+			System.out.print("[1]로그인 [2]회원가입 [3]전체조회 [4]회원검색 [5]회원삭제 [6]프로그램 종료");
+			select = sc.nextInt();
+			
+			if (select == 1) {
+				
+			} else if (select == 2) {
+				// 로그인
+			} else if (select == 3) {
+				// 회원가입
+			} else if (select == 4) {
+				// 전체조회
+			} else if (select == 5) {
+				// 회원검색
+			} else if (select == 6) {
+				// 프로그램 종료
+				System.out.println("프로그램이 종료되었습니다.");
+			} else {
+				System.out.println("1~6번을 선택해주세요.");
+			}
+			
+		}
+		
+	}
+
+}

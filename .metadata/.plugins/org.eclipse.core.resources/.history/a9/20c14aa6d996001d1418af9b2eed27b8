@@ -1,0 +1,28 @@
+package musicPlayer;
+
+public class MusicVO_M {
+
+	// 노래 제목, 가수이름, play 시간
+	private String musicName;
+	private String singer;
+	private int playTime;
+
+	public MusicVO_M(String musicName, String singer, int playTime) {
+		this.musicName = musicName;
+		this.singer = singer;
+		this.playTime = playTime;
+	}
+
+	public String getMusicName() {
+		return musicName;
+	}
+
+	public String getSinger() {
+		return singer;
+	}
+
+	public int getPlayTime() {
+		return playTime;
+	}
+
+}

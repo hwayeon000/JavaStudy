@@ -1,0 +1,169 @@
+package 회원정보관리프로그램;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class JoinDAO {
+	
+	Connection conn = null;
+	PreparedStatement psmt = null;
+	ResultSet rs = null;
+
+	// Controller가 보내준 요청(DB에 저장, 삭제..)
+	// DataBase에 직접적인 접근을 하는 코드를 통해 결과값을 받아온다
+	// 결과값을 Controller로 다시 보내줌
+	
+
+	// 회원가입
+	public int join(JoinDTO dto) {
+		int row = 0;
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String user = "system";
+			String password = "12345";
+
+			// 권한이 있는지 없는지를 Connection 객체에 담기
+			conn = DriverManager.getConnection(url, user, password);
+
+			String sql = "INSERT INTO join VALUES (?, ?, ?)";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPw());
+			psmt.setString(3, dto.getName());
+
+			// delete, insert, update.. : 영향을 받는 행이 있음
+			// ---> executeUpdate()
+			row = psmt.executeUpdate();// 영향을 받는 행이 있는지 없는지 int 결과값
+			
+			// row : JDBC 코드를 통해 최종적으로 받아온 결과값
+			
+
+		} catch (ClassNotFoundException | SQLException e) {
+			System.out.println("회원가입 : 데이터베이스 연결 실패");
+			e.printStackTrace();
+		} finally {
+			// 자원반납
+			// psmt -> conn
+			try {
+				if (psmt != null)
+					psmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return row;
+	}
+	
+	
+	// 회원삭제
+	public int delete(String name) {
+		int row = 0;
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String user = "system";
+			String password = "12345";
+
+			// 권한이 있는지 없는지를 Connection 객체에 담기
+			conn = DriverManager.getConnection(url, user, password);
+			
+			String sql = "DELETE FROM join WHERE name = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, name);
+
+			// delete, insert, update.. : 영향을 받는 행이 있음
+			// ---> executeUpdate()
+			row = psmt.executeUpdate();// 영향을 받는 행이 있는지 없는지 int 결과값
+			// row : JDBC 코드를 통해 최종적으로 받아온 결과값
+
+		} catch (ClassNotFoundException | SQLException e) {
+			System.out.println("회원가입 : 데이터베이스 연결 실패");
+			e.printStackTrace();
+		} finally {
+			// 자원반납
+			// psmt -> conn
+			try {
+				if (psmt != null)
+					psmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return row;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// 회원 검색
+	public String search(String name) {
+		int row = 0;
+		String res = null;
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String user = "system";
+			String password = "12345";
+
+			// 권한이 있는지 없는지를 Connection 객체에 담기
+			conn = DriverManager.getConnection(url, user, password);
+
+			String sql = "SELECT id FROM join WHERE name = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, name);
+
+			// delete, insert, update.. : 영향을 받는 행이 있음
+			// ---> executeUpdate()
+			row = psmt.executeUpdate();// 영향을 받는 행이 있는지 없는지 int 결과값
+			
+			while (rs.next()) {
+				res = rs.getString("name");
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+			System.out.println("회원가입 : 데이터베이스 연결 실패");
+			e.printStackTrace();
+		} finally {
+			// 자원반납
+			// psmt -> conn
+			try {
+				if (rs != null) rs.close();
+				if (psmt != null) psmt.close();
+				if (conn != null) conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return res;
+	}
+}
