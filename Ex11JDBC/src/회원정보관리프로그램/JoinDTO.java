@@ -19,6 +19,10 @@ public class JoinDTO {
 		this.name = name;
 	}
 
+	public JoinDTO() {
+		
+	}
+	
 	// getter / setter
 	public String getId() {
 		return id;

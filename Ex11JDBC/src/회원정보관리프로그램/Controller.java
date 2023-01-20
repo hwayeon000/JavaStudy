@@ -1,5 +1,7 @@
 package 회원정보관리프로그램;
 
+import java.util.ArrayList;
+
 public class Controller {
 	JoinDAO dao = new JoinDAO();
 	
@@ -35,7 +37,16 @@ public class Controller {
 	}
 
 	
-	
+	public void select() {
+		ArrayList<JoinDTO> res = dao.select();
+		if (res.size() > 0) {
+			for (int i = 0; i < res.size(); i++) {
+				JoinDTO a = res.get(i);
+				System.out.println(a.getId() + ", " + a.getPw() + ", " + a.getName());
+			}
+		}
+		else  System.out.println("없는 회원정보입니다!");
+	}
 	
 	
 }

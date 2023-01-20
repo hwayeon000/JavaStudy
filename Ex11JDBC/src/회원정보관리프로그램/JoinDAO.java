@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class JoinDAO {
 
@@ -42,7 +43,7 @@ public class JoinDAO {
 			// row : JDBC 코드를 통해 최종적으로 받아온 결과값
 
 		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("회원가입 : 데이터베이스 연결 실패");
+			System.out.println("회원 가입 : 데이터베이스 연결 실패");
 			e.printStackTrace();
 		} finally {
 			// 자원반납
@@ -84,7 +85,7 @@ public class JoinDAO {
 			// row : JDBC 코드를 통해 최종적으로 받아온 결과값
 
 		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("회원가입 : 데이터베이스 연결 실패");
+			System.out.println("회원 삭제 : 데이터베이스 연결 실패");
 			e.printStackTrace();
 		} finally {
 			// 자원반납
@@ -105,8 +106,6 @@ public class JoinDAO {
 
 	// 회원 검색
 	public JoinDTO search(JoinDTO dto) {
-		int row = 0;
-		String res = null;
 		JoinDTO dto1 = new JoinDTO(null, null, null);
 
 		try {
@@ -122,17 +121,18 @@ public class JoinDAO {
 			psmt.setString(1, dto.getName());
 
 			rs = psmt.executeQuery();
-			rs.next();
-			
-			String id = rs.getString("id");
-			String pw = rs.getString("pw");
-			String name = rs.getString("name");
-			dto1.setId(id);
-			dto1.setPw(pw);
-			dto1.setName(name);
+
+			if (rs.next()) {
+				String id = rs.getString("id");
+				String pw = rs.getString("pw");
+				String name = rs.getString("name");
+				dto1.setId(id);
+				dto1.setPw(pw);
+				dto1.setName(name);
+			}
 
 		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("회원가입 : 데이터베이스 연결 실패");
+			System.out.println("회원검색 : 데이터베이스 연결 실패");
 			e.printStackTrace();
 		} finally {
 			// 자원반납
@@ -152,4 +152,54 @@ public class JoinDAO {
 
 		return dto1;
 	}
+
+	// 회원 조회
+	public ArrayList<JoinDTO> select() {
+		ArrayList<JoinDTO> dto = new ArrayList<>();
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String user = "system";
+			String password = "12345";
+
+			conn = DriverManager.getConnection(url, user, password);
+
+			String sql = "SELECT * FROM join";
+			psmt = conn.prepareStatement(sql);
+
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				String id = rs.getString("id");
+				String pw = rs.getString("pw");
+				String name = rs.getString("name");
+				JoinDTO dto1 = new JoinDTO();
+				dto1.setId(id);
+				dto1.setPw(pw);
+				dto1.setName(name);
+				dto.add(dto1);
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+			System.out.println("회원조회 : 데이터베이스 연결 실패");
+			e.printStackTrace();
+		} finally {
+			// 자원반납
+			// psmt -> conn
+			try {
+				if (rs != null)
+					rs.close();
+				if (psmt != null)
+					psmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return dto;
+	}
+
 }

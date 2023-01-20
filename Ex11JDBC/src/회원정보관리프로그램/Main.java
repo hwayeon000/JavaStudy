@@ -48,6 +48,7 @@ public class Main {
 			} else if (select == 3) {
 				// 전체조회
 				// 메서드 이름 : select()
+				ct.select();
 			} else if (select == 4) {
 				// 회원검색
 				System.out.print("확인을 원하는 ID의 이름을 입력해주세요 >>");
