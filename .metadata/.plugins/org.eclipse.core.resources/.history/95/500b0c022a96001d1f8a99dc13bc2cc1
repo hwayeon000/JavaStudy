@@ -1,9 +1,0 @@
-package life;
-
-public class Animal {
-
-	public void eating() {
-		System.out.println("뇸뇸 먹습니다! ψ(｀∇´)ψ");
-	}
-	
-}

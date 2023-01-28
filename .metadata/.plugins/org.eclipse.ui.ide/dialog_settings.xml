@@ -6,24 +6,21 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
-			<item value="C:\Users\SMHRD\Documents\카카오톡 받은 파일\팔일차\팔일차"/>
-			<item value="C:\Users\SMHRD\Documents\카카오톡 받은 파일\JavaFestival\JavaFestival\JavaFestival\JavaFestival"/>
-			<item value="C:\Users\SMHRD\Documents\카카오톡 받은 파일\JavaFestival\JavaFestival"/>
-			<item value="C:\Users\SMHRD\Desktop\workspace\JavaFestival\JavaFestival_gjaischool"/>
-			<item value="C:\Users\SMHRD\Desktop\workspace\JavaFestival\JavaFestival"/>
-			<item value="C:\Users\SMHRD\Desktop\workspace\JavaStudy\workspace\JavaStudy\Javafestival2"/>
-			<item value="C:\Users\SMHRD\Desktop\workspace\JavaStudy\workspace\Javafestival2"/>
-			<item value="C:\Users\SMHRD\Desktop\workspace\JavaStudy\Javafestival2"/>
+			<item value="C:\Users\SMHRD\Desktop\workspace\JavaStudy\SnakeGame"/>
+			<item value="C:\Users\SMHRD\Desktop\workspace\JavaStudy"/>
 		</list>
 	</section>
 	<section name="NewWizardAction">
 		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.emf.codegen.ecore.ui.wizardCategory"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.jst.j2ee.internal"/>
 		</list>
 	</section>
 	<section name="ChooseWorkspaceDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="322"/>
-		<item key="DIALOG_Y_ORIGIN" value="306"/>
+		<item key="DIALOG_X_ORIGIN" value="396"/>
+		<item key="DIALOG_Y_ORIGIN" value="297"/>
 	</section>
 	<section name="WORKBENCH_SETTINGS">
 		<list key="ENABLED_TRANSFERS">

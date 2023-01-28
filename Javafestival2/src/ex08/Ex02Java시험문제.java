@@ -26,6 +26,9 @@ public class Ex02Java시험문제 {
 		}
 		System.out.println(res);
 
+		
+		
+		
 	}
 
 }

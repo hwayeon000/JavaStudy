@@ -1,6 +1,0 @@
-package food;
-
-public class SJMalatang extends WonzoMalatang {
-	
-	
-}
