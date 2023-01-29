@@ -13,7 +13,7 @@ public class Controller {
 	
 	static Scanner sc = new Scanner(System.in);
 	static MusicPlayer player = new MusicPlayer();
-	MusicVO m = player.play(0); // 메인음악
+//	MusicVO m = player.play(0); // 메인음악
 	DAO dao = new DAO();
 	int row = 0;
 	static String userNick = "";
@@ -54,6 +54,7 @@ public class Controller {
 		}
 	}
 
+	
 	// 게임 난이도 선택
 	public static void levelChoice(int level_choice) {
 		boolean isCleared = false;
@@ -96,7 +97,6 @@ public class Controller {
 	// 난이도에 따른 게임 선택
 	public static int gameChoice(int game_select) {
 		DAO dao1 = new DAO();
-		int row = 0;
 		int num = 0;
 		int a = 0;
 		// level 1은 5*5, 2는 10*10
@@ -115,6 +115,7 @@ public class Controller {
 			System.out.println("숫자를 확인해주세요.");
 			return 1;
 		}
+		int row = 0;
 		row = dao1.clear(userSeq,gameSeq);
 		if(row > 0) {
 
@@ -143,14 +144,14 @@ public class Controller {
 			}
 		}
 		
-		if (ans.getGameAns() == null) {
+		if (ans.getGameCode() == null) {
 			System.out.println("게임 정보 오류");
 
 		} else if (level == 1) { // 5*5
 			num = 5;
 			System.out.println(num + " x " + num);
 			// 답데이터 res[][]배열에 저장
-			res = arrMake(ans.getGameAns(), num);
+			res = arrMake(ans.getGameCode(), num);
 
 			// 문제
 			int a1 = playGame(num, res, game_select);
@@ -161,7 +162,7 @@ public class Controller {
 			num = 10;
 			System.out.println(num + " x " + num);
 			// 답데이터 res[][]배열에 저장
-			res = arrMake(ans.getGameAns(), num);
+			res = arrMake(ans.getGameCode(), num);
 
 			// 문제
 			int a1 = playGame(num, res, game_select);
@@ -308,7 +309,8 @@ public class Controller {
 				}
 				Random rd = new Random();
 				// 코인 차감
-				dao1.gaCha(userCoin-1);
+				dao1.updateCoin(userCoin-1, userSeq);
+//				dao1.gaCha(userCoin-1);
 				choice = rd.nextInt(hintNum*hintNum) + 1;
 				System.out.println(choice + "번! 힌트 사용 완료! 코인 한개 차감!");
 				System.out.println(userCoin + "개 남았습니다!");
@@ -388,7 +390,8 @@ public class Controller {
 						sleep();
 						
 						// userCoin 3개 차감
-						dao1.gaCha(userCoin-3);
+						dao1.updateCoin(userCoin-3, userSeq);
+//						dao1.gaCha(userCoin-3);
 						int a1 = gaCha();
 						player.stop();
 						player.play(1);
@@ -707,6 +710,11 @@ public class Controller {
 			return false;
 		}
 		return true;
+	}
+
+	public static String getUserNick() {
+		// TODO Auto-generated method stub
+		return userNick;
 	}
 
 }

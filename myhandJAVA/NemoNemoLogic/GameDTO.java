@@ -5,14 +5,17 @@ public class GameDTO {
 	private Integer gameSeq;
 	private String gameTime;
 	private Integer gameClear;
-	private String gameAns;
+	private String gameCode;
+	private String gameSubject;
 	private String userNick;
+	
 	public GameDTO(Integer userSeq, Integer gameSeq, String gameTime, Integer gameClear, String gameAns) {
 		this.userSeq = userSeq;
 		this.gameSeq = gameSeq;
 		this.gameTime = gameTime;
 		this.gameClear = gameClear;
-		this.gameAns = gameAns;
+		this.gameCode = gameCode;
+		this.gameSubject = gameSubject;
 	}
 	public String getUserNick() {
 		return userNick;
@@ -22,21 +25,14 @@ public class GameDTO {
 	}
 	public GameDTO(Integer gameSeq, String gameAns) {
 		this.gameSeq = gameSeq;
-		this.gameAns = gameAns;
+		this.gameCode = gameCode;
 	}
 	public GameDTO(String userNick , String gameTime) {
 		this.userNick = userNick;
 		this.gameTime = gameTime;
 	}
-	
 	public Integer getUserSeq() {
 		return userSeq;
-	}
-	public String getGameAns() {
-		return gameAns;
-	}
-	public void setGameAns(String gameAns) {
-		this.gameAns = gameAns;
 	}
 	public void setUserSeq(Integer userSeq) {
 		this.userSeq = userSeq;
@@ -59,5 +55,18 @@ public class GameDTO {
 	public void setGameClear(Integer gameClear) {
 		this.gameClear = gameClear;
 	}
+	public String getGameCode() {
+		return gameCode;
+	}
+	public void setGameCode(String gameCode) {
+		this.gameCode = gameCode;
+	}
+	public String getGameSubject() {
+		return gameSubject;
+	}
+	public void setGameSubject(String gameSubject) {
+		this.gameSubject = gameSubject;
+	}
+	
 
 }

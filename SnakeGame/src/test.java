@@ -1,8 +1,10 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Iterator;
+import java.util.Scanner;
 
 import javax.swing.Timer;
+
 
 public class test {
 
@@ -222,12 +224,112 @@ public class test {
 //		System.out.println("줄바꿈 확인");
 //		System.out.println("1\n3");
 		
+
+		
+		
+		Scanner sc = new Scanner(System.in);
+		int row = 1;
+		boolean isCheck = false;
+		String[] nums = { "①", "②", "③", "④", "⑤" };
+		
+		// 게임 시작
+		while(true) {
+			System.out.println("-------------------------------------------");
+			System.out.println("ː   ① 회원가입  ② 로그인  ③ 종료     ː ");
+			System.out.println("-------------------------------------------\n");
+			int choice = sc.nextInt();
+			
+			if (choice == 1) { // 회원가입 
+				System.out.println("---------------회원가입------------");
+				System.out.print("횐 가입 체크 : ");
+				String id = sc.next();
+
+				System.out.println("---------------------------------\n");
+
+			} else if (choice == 2 && !isCheck) {
+				System.out.println("---------------로그인-------------");
+				// 로그인
+				System.out.print("로긴 체크 : ");
+				String pw = sc.next();
+				
+				if (pw.equals("성공")) {
+					isCheck = true;
+					row = 1;
+					System.out.println("---------------------------------\n");
+					System.out.println();
+					System.out.println("=============================================");
+					System.out.println("ː            네모네모 로직 게임 설명             ː");
+					System.out.println("ː                                          ː");
+					System.out.println("ː   1. 쓰인 숫자만큼 연속된 칸을 칠할것 !          ː");
+					System.out.println("ː   2. 숫자와 숫자 사이에는 최소한 한 칸을 비울 것 ! ː");
+					System.out.println("ː   3. 숫자의 순서와 칠해진 칸의 순서가 일치할 것 !  ː");
+					System.out.println("=============================================\n");
+					System.out.println();
+				}
+				
+				if (isCheck && row > 0) {
+					System.out.println();
+					System.out.println("-------------난이도선택------------");
+					System.out.println("ː   ① 5X5    ② 10X10   ③ 로그아웃  ː ");
+					System.out.println("---------------------------------\n");
+					int level_choice = sc.nextInt();
+					if (level_choice == 1) {
+						System.out.println("5 x 5");
+						System.out.println();
+						System.out.println("게임을 선택하세요.");
+						System.out.println("1번 2번 3번 .....");
+					} else if (level_choice == 2) {
+						System.out.println("10 x 10");
+					} else if (level_choice == 3) {
+						System.out.println("로그아웃 되었습니다.");
+						isCheck = false;
+						row = 0;
+					} else {
+						System.out.println("번호를 확인하세요~.");
+						continue;
+					}
+					
+					System.out.println("플레이할 그림을 선택하세요");
+					// 고민중
+				}
+
+			} else if (choice == 3) {
+				System.out.println("-------------게임을 종료합니다------------");
+//				player.stop();
+				isCheck = false;
+				break;
+			} else {
+				System.out.println("올바른 숫자를 입력해주세요");
+			}
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		int[][] ans = { { 1, 0, 0, 0, 1 }, { 1, 1, 1, 0, 1 }, { 1, 0, 1, 0, 1 }, { 1, 0, 0, 0, 1 }, { 1, 1, 1, 1, 1 } };
 //		printResult(ans);
 		printQuestion(ans);
 
-		
 		
 	}
 	

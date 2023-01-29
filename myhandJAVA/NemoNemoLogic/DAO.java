@@ -14,6 +14,42 @@ public class DAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	
+	public void getCon() {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+//			String url = "jdbc:oracle:thin:@gjaischool-b.ddns.net:1525:xe";
+//			String user = "campus_d_0120_4";
+//			String password = "smhrd4";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String user = "C##NEMO";
+			String password = "NEMO1234";
+			
+			conn = DriverManager.getConnection(url, user, password);
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			System.out.println("데이터 베이스 연동 실패");
+			e.printStackTrace();
+		}
+	}
+	
+	public void getClose() {
+		try {
+			if(rs != null) {
+				rs.close();
+			}
+			if(psmt != null) {
+				psmt.close();							
+			}
+			if(conn != null) {
+				conn.close();
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// 회원가입
 	public int join(DTO dto) {
 		getCon();
 		int row = 0;
@@ -36,39 +72,6 @@ public class DAO {
 		}
 		return row;
 	}
-	
-	public void getCon() {
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			
-			String url = "jdbc:oracle:thin:@gjaischool-b.ddns.net:1525:xe";
-			String user = "campus_d_0120_4";
-			String password = "smhrd4";
-			
-			conn = DriverManager.getConnection(url, user, password);
-			
-		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("데이터 베이스 연동 실패");
-			e.printStackTrace();
-		}
-	}
-	public void getClose() {
-		try {
-			if(rs != null) {
-				rs.close();
-			}
-			if(psmt != null) {
-				psmt.close();							
-			}
-			if(conn != null) {
-				conn.close();
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	
 	// 로그인
 	public DTO login(DTO dto) {
@@ -113,7 +116,7 @@ public class DAO {
 				game_seq.add(rs.getInt("game_seq"));
 			}
 		} catch (SQLException e) {
-			System.out.println("game seq : 데이터베이스 연결 실패");
+			System.out.println("game level : 데이터베이스 연결 실패");
 			e.printStackTrace();
 		} finally {
 			getClose();
@@ -121,13 +124,12 @@ public class DAO {
 		return game_seq;
 	}
 	
-	
 	// 게임 난이도에 따른 게임 종류(개수) 반환
 	public GameDTO gameChoice(int level, int game_select) {
 		GameDTO ans = new GameDTO(0, "");
 		getCon();
 		try {
-			String sql = "SELECT * FROM (SELECT ROWNUM AS RN, game_seq, game_ans FROM GAME_INFO WHERE game_level = ? order by game_seq) WHERE RN = ?";
+			String sql = "SELECT * FROM (SELECT ROWNUM AS RN, GAME_SEQ, GAME_CODE FROM GAME_INFO WHERE GAME_LEVEL = ? ORDER BY GAME_SEQ) WHERE RN = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, level);
 			psmt.setInt(2, game_select);
@@ -135,35 +137,18 @@ public class DAO {
 			
 			while (rs.next()) {
 				ans.setGameSeq(rs.getInt(2));
-				ans.setGameAns(rs.getString(3));
+				ans.setGameCode(rs.getString(3));
 			}
 		} catch (SQLException e) {
-			System.out.println("game seq : 데이터베이스 연결 실패");
+			System.out.println("game level seq : 데이터베이스 연결 실패");
 			e.printStackTrace();
 		} finally {
 			getClose();
 		}
 		return ans;
 	}
-	
-	public int updateCoin(int coin , int userSeq) {
-		getCon();
-		int row = 0;
-		try {
-			String sql = "UPDATE USER_INFO SET USER_COIN = USER_COIN + ? WHERE USER_SEQ = ? ";
-			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, coin);
-			psmt.setInt(2, userSeq);
-			row = psmt.executeUpdate();
-		} catch (SQLException e) {
-			System.out.println("코인 업데이트 실패");
-			e.printStackTrace();
-		}finally {
-			getClose();
-		}
-		return row;
-	}
 
+	// 사용자 게임 플레이타임 정보 저장
 	public void userGame(int userSeq ,int game_select , String time) {
 		int row = 0;
 		int check = 0;
@@ -207,6 +192,7 @@ public class DAO {
 		}
 	}
 
+	// 게임 클리어 여부 체크
 	public int clear(int userSeq, int gameSeq) {
 		int row = 0;
 		getCon();
@@ -223,6 +209,7 @@ public class DAO {
 		return row;
 	}
 
+	// 게임 랭크 출력을 위한 정보
 	public ArrayList<GameDTO> rank(int gameSeq) {
 		ArrayList<GameDTO> list = new ArrayList<>();
 		getCon();
@@ -254,26 +241,46 @@ public class DAO {
 		
 	}
 	
-	public int gaCha(int coin) {
-		int row = 0;
+	// 사용자 코인의 변화 업데이트
+	public int updateCoin(int coin , int userSeq) {
 		getCon();
+		int row = 0;
 		try {
-			String sql = "UPDATE user_info SET user_coin = ? where user_seq = 3";
+			String sql = "UPDATE USER_INFO SET USER_COIN = USER_COIN + ? WHERE USER_SEQ = ? ";
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1,coin);
+			psmt.setInt(1, coin);
+			psmt.setInt(2, userSeq);
 			row = psmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("Rank : SQL 전송 실패");
+			System.out.println("user_coin update : 코인 업데이트 실패");
 			e.printStackTrace();
+		}finally {
+			getClose();
 		}
 		return row;
 	}
 	
+//	public int gaCha(int coin) {
+//		int row = 0;
+//		getCon();
+//		try {
+//			String sql = "UPDATE user_info SET user_coin = ? where user_seq = 3";
+//			psmt = conn.prepareStatement(sql);
+//			psmt.setInt(1,coin);
+//			row = psmt.executeUpdate();
+//		} catch (SQLException e) {
+//			System.out.println("Rank : SQL 전송 실패");
+//			e.printStackTrace();
+//		}
+//		return row;
+//	}
+	
+	// 사용자의 코인 체크
 	public int userCoinCheck(int userSeq) {
 		int res = 0;
 		getCon();
 		try {
-			String sql = "select user_coin from user_info where user_seq = ?";
+			String sql = "SELECT USER_COIN FROM USER_INFO WHERE USER_SEQ = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, userSeq);
 			rs = psmt.executeQuery();
@@ -281,7 +288,7 @@ public class DAO {
 				res = rs.getInt(1);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("user_coin check : 코인 체크 실패");
 			e.printStackTrace();
 		}finally {
 			getClose();
