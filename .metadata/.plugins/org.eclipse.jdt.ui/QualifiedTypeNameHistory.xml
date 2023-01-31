@@ -1,12 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="회원정보관리프로그램.JoinDTO"/>
-    <fullyQualifiedTypeName name="javax.swing.Timer"/>
-    <fullyQualifiedTypeName name="controller.GameQuestion"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="NemoNemoLogic.DAO"/>
-    <fullyQualifiedTypeName name="NemoNemoLogic.Main"/>
-    <fullyQualifiedTypeName name="NemoNemoLogic.NemoNemoMain"/>
-    <fullyQualifiedTypeName name="NemoNemoLogic.Controller"/>
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>
