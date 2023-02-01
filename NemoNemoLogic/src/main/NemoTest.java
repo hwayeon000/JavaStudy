@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -18,6 +19,7 @@ public class NemoTest extends JFrame {
 	int y_max = 25;
 	int count = 0;
 
+	
 	int[][] map = { { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 
 			{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -144,6 +146,14 @@ public class NemoTest extends JFrame {
 						count++;
 //						g.fillOval(i * 25, j * 25, 25, 25);
 						// 사각형 칠하기
+						g.setColor(Color.RED);
+						// i, j 인덱스..
+						g.fillRect(i * 25, j * 25, 25, 25);
+					} else if (map[i][j] == 3) {
+						count++;
+//						g.fillOval(i * 25, j * 25, 25, 25);
+						// 사각형 칠하기
+						g.setColor(Color.yellow);
 						// i, j 인덱스..
 						g.fillRect(i * 25, j * 25, 25, 25);
 					}

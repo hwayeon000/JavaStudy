@@ -20,9 +20,9 @@ class JPanel01 extends JPanel {
 	private JButton jButton1;
 	private JScrollPane jScrollPane1;
 	private JTextArea jTextArea1;
-	private JPanelTest win;
+	private JPanelChange win;
 
-	public JPanel01(JPanelTest win) {
+	public JPanel01(JPanelChange win) {
 		this.win = win;
 		setLayout(null);
 		
@@ -57,14 +57,15 @@ class JPanel02 extends JPanel {
 	
 	private JTextField textField;
 	private JPasswordField passwordField;
-	private JPanelTest win;
+	private JPanelChange win;
 	
-	public JPanel02(JPanelTest win) {
+	public JPanel02(JPanelChange win) {
 		
+		// setBounds ( x좌표 y좌표 w 가로크기 h 세로크기 )
 		setLayout(null);
 		this.win = win;
 		JLabel idLb = new JLabel("아이디 : ");
-		idLb.setBounds(31,40,67,15);
+		idLb.setBounds(32,40,67,15);
 		add(idLb);
 		
 		textField = new JTextField();
@@ -73,18 +74,39 @@ class JPanel02 extends JPanel {
 		textField.setColumns(10);
 		
 		JLabel pwLb = new JLabel("암호 : ");
-		pwLb.setBounds(31,84,67,15);
+		pwLb.setBounds(32,84,67,15);
 		add(pwLb);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(123,84,116,21);
 		add(passwordField);
 		
-		JButton btn = new JButton("로그인");
+		JLabel nickLb = new JLabel("닉네임 : ");
+		nickLb.setBounds(32,128,67,15);
+		add(nickLb);
+		
+		textField = new JPasswordField();
+		textField.setBounds(123,128,116,21);
+		add(textField);
+		
+		JButton btn = new JButton("메인으로");
 		btn.setSize(90,20);
-		btn.setLocation(10,10);
+		btn.setLocation(32,10);
 		add(btn);
 		btn.addActionListener(new MyActionListener());
+		
+		JButton btnJoin = new JButton("회원가입");
+		btnJoin.setSize(90,20);
+		btnJoin.setLocation(32,172);
+		add(btnJoin);
+		btn.addActionListener(new MyJoinListener());
+		
+		JButton btnLogin = new JButton("로그인");
+		btnLogin.setSize(90,20);
+		btnLogin.setLocation(146,172);
+		add(btnLogin);
+		btn.addActionListener(new MyLoginListener());
+		
 		
 	}
 	
@@ -93,21 +115,37 @@ class JPanel02 extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			win.change("panel01");
+			win.change("Panel01");
 		}
 	}
-
+	
+	class MyJoinListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			win.change("Join");
+		}
+	}
+	
+	class MyLoginListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			win.change("login");
+		}
+	}
+	
 }
 
 @SuppressWarnings("serial")
-class JPanelTest extends JFrame{
+class JPanelChange extends JFrame{
 	
 	public JPanel01 jpanel01 = null;
 	public JPanel02 jpanel02 = null;
 	
 	// 패널 1번 2번 변경 후 재설정
 	public void change(String panelName) {
-		if (panelName.equals("panel01")) {
+		if (panelName.equals("Panel01")) {
 			
 			getContentPane().removeAll();
 			getContentPane().add(jpanel01);
@@ -133,7 +171,7 @@ public class Main {
 		// TODO Auto-generated method stub
 
 
-		JPanelTest win = new JPanelTest();
+		JPanelChange win = new JPanelChange();
 		
 		win.setTitle("frame test");
 		win.jpanel01 = new JPanel01(win);
