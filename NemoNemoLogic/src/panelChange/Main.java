@@ -26,7 +26,7 @@ class JPanel01 extends JPanel {
 		this.win = win;
 		setLayout(null);
 		
-		jButton1 = new JButton("회원가입 / 로그인");
+		jButton1 = new JButton("회원가입/로그인");
 		jButton1.setSize(140,20);
 		jButton1.setLocation(10,10);
 		add(jButton1);
@@ -116,7 +116,7 @@ class JPanel02 extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			win.change("Panel01");
-		}
+		} 
 	}
 	
 	class MyJoinListener implements ActionListener {
