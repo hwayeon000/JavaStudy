@@ -13,7 +13,7 @@ public class Controller {
 	
 	static Scanner sc = new Scanner(System.in);
 	static MusicPlayer player = new MusicPlayer();
-//	MusicVO m = player.play(0); // 메인음악
+	MusicVO m = player.play(0); // 메인음악
 	DAO dao = new DAO();
 	int row = 0;
 	static String userNick = "";

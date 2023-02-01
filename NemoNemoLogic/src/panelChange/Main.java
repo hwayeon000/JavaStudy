@@ -99,13 +99,13 @@ class JPanel02 extends JPanel {
 		btnJoin.setSize(90,20);
 		btnJoin.setLocation(32,172);
 		add(btnJoin);
-		btn.addActionListener(new MyJoinListener());
+		btnJoin.addActionListener(new MyJoinListener());
 		
 		JButton btnLogin = new JButton("로그인");
 		btnLogin.setSize(90,20);
 		btnLogin.setLocation(146,172);
 		add(btnLogin);
-		btn.addActionListener(new MyLoginListener());
+		btnLogin.addActionListener(new MyLoginListener());
 		
 		
 	}

@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Frame a = new Frame();
+		Frame1 a = new Frame1();
 		
 	}
 	

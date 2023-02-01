@@ -11,7 +11,6 @@ import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import main.Circle.MyPanel;
 
 public class NemoTest extends JFrame {
 
